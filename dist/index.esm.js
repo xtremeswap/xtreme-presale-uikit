@@ -3583,7 +3583,7 @@ var MenuLink = function (_a) {
     return React.createElement(Tag, __assign({}, props, otherProps));
 };
 
-var Icons$3 = IconModule;
+var Icons$2 = IconModule;
 var Container$1 = styled.div(templateObject_1$9 || (templateObject_1$9 = __makeTemplateObject(["\n  display: flex;\n  flex-direction: column;\n  overflow-y: auto;\n  overflow-x: hidden;\n  height: 100%;\n"], ["\n  display: flex;\n  flex-direction: column;\n  overflow-y: auto;\n  overflow-x: hidden;\n  height: 100%;\n"])));
 var PanelBody = function (_a) {
     var isPushed = _a.isPushed, pushNav = _a.pushNav, isMobile = _a.isMobile, links = _a.links;
@@ -3591,7 +3591,7 @@ var PanelBody = function (_a) {
     // Close the menu when a user clicks a link on mobile
     var handleClick = isMobile ? function () { return pushNav(false); } : undefined;
     return (React.createElement(Container$1, null, links.map(function (entry) {
-        var Icon = Icons$3[entry.icon];
+        var Icon = Icons$2[entry.icon];
         var iconElement = React.createElement(Icon, { width: "24px", mr: "8px" });
         var calloutClass = entry.calloutClass ? entry.calloutClass : undefined;
         if (entry.items) {
@@ -3611,18 +3611,6 @@ var PanelBody = function (_a) {
     })));
 };
 var templateObject_1$9;
-
-var Icons$2 = IconModule;
-var MoonIcon = Icons$2.MoonIcon, SunIcon = Icons$2.SunIcon;
-var ThemeSwitcher = function (_a) {
-    var isDark = _a.isDark, toggleTheme = _a.toggleTheme;
-    return (React.createElement(Button, { variant: "text", onClick: function () { return toggleTheme(!isDark); } },
-        React.createElement(Flex, { alignItems: "center" },
-            React.createElement(SunIcon, { color: isDark ? "textDisabled" : "text", width: "24px" }),
-            React.createElement(Text, { color: "textDisabled", mx: "4px" }, "/"),
-            React.createElement(MoonIcon, { color: isDark ? "text" : "textDisabled", width: "24px" }))));
-};
-var ThemeSwitcher$1 = React.memo(ThemeSwitcher, function (prev, next) { return prev.isDark === next.isDark; });
 
 var Icons$1 = IconModule;
 var SocialLinks = function () { return (React.createElement(Flex, null, socials.map(function (social, index) {
@@ -3652,7 +3640,7 @@ var Container = styled.div(templateObject_1$8 || (templateObject_1$8 = __makeTem
 var SettingsEntry = styled.div(templateObject_2$3 || (templateObject_2$3 = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  height: ", "px;\n  padding: 0 8px;\n"], ["\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  height: ", "px;\n  padding: 0 8px;\n"])), MENU_ENTRY_HEIGHT);
 var SocialEntry = styled.div(templateObject_3$1 || (templateObject_3$1 = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  height: ", "px;\n  padding: 0 16px;\n"], ["\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  height: ", "px;\n  padding: 0 16px;\n"])), MENU_ENTRY_HEIGHT);
 var PanelFooter = function (_a) {
-    var isPushed = _a.isPushed, pushNav = _a.pushNav, toggleTheme = _a.toggleTheme, isDark = _a.isDark; _a.cakePriceUsd; var currentLang = _a.currentLang, langs = _a.langs, setLang = _a.setLang;
+    var isPushed = _a.isPushed, pushNav = _a.pushNav; _a.toggleTheme; _a.isDark; _a.cakePriceUsd; var currentLang = _a.currentLang, langs = _a.langs, setLang = _a.setLang;
     if (!isPushed) {
         return (React.createElement(Container, null,
             React.createElement(IconButton, { variant: "text", onClick: function () { return pushNav(true); } },
@@ -3662,7 +3650,6 @@ var PanelFooter = function (_a) {
         React.createElement(SocialEntry, null,
             React.createElement(SocialLinks$1, null)),
         React.createElement(SettingsEntry, null,
-            React.createElement(ThemeSwitcher$1, { isDark: isDark, toggleTheme: toggleTheme }),
             React.createElement(LangSelector$1, { currentLang: currentLang, langs: langs, setLang: setLang }))));
 };
 var templateObject_1$8, templateObject_2$3, templateObject_3$1;
